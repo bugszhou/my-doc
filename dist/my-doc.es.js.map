@@ -1,0 +1,1 @@
+{"version":3,"file":"my-doc.es.js","sources":["../src/index.ts"],"sourcesContent":["export default function index() {\n  return \"my-doc\";\n}"],"names":[],"mappings":"AAAc,SAAU,KAAK,GAAA;AAC3B,IAAA,OAAO,QAAQ,CAAC;AAClB;;;;"}
