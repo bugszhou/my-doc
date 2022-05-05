@@ -2,12 +2,6 @@
 
 组件功能描述
 
-## 示例
-
-```jsx
-<Demo componentData="{{demoData}}"></Demo>
-```
-
 ## 属性 - properties
 
 | 属性名        | 是否必需 | 类型名  | 类型声明文件                       | 描述         |
