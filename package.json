@@ -11,7 +11,7 @@
         "fix": "npm run lint --fix",
         "prebuild": "rimraf dist",
         "dev": "rollup -c rollup.config.ts -w & tsc bin/my-doc.ts --watch",
-        "build": "tsc --module commonjs && rollup -c rollup.config.ts & tsc bin/my-doc.ts",
+        "build": "tsc --module commonjs && rollup -c rollup.config.ts && tsc bin/my-doc.ts",
         "prepublish": "npm run build",
         "commit": "git-cz --disable-emoji",
         "prepare": "rimraf .husky && npm run husky",

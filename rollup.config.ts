@@ -9,7 +9,7 @@ import eslint from "@rollup/plugin-eslint";
 
 const pkg = require("./package.json");
 
-const inputFileName = "index";
+const inputFileName = "myDoc";
 
 export default {
   input: `src/${inputFileName}.ts`,
