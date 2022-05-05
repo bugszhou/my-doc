@@ -17,7 +17,7 @@ export default {
     {
       file: pkg.main,
       name: camelCase(pkg.name),
-      format: "umd",
+      format: "cjs",
       sourcemap: true,
       exports: "named",
       compact: true,
@@ -29,6 +29,7 @@ export default {
   external: [],
   watch: {
     include: "src/**",
+    exclude: "src/bin/**",
   },
   plugins: [
     eslint(),

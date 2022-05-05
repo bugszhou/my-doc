@@ -10,8 +10,8 @@
         "lint": "eslint --ext .ts --ext .tsx src -c .eslintrc.js",
         "fix": "npm run lint --fix",
         "prebuild": "rimraf dist",
-        "dev": "rollup -c rollup.config.ts -w",
-        "build": "tsc --module commonjs && rollup -c rollup.config.ts",
+        "dev": "rollup -c rollup.config.ts -w & tsc bin/my-doc.ts --watch",
+        "build": "tsc --module commonjs && rollup -c rollup.config.ts & tsc bin/my-doc.ts",
         "prepublish": "npm run build",
         "commit": "git-cz --disable-emoji",
         "prepare": "rimraf .husky && npm run husky",
@@ -19,6 +19,9 @@
         "commit-msg": "husky add .husky/commit-msg \"npx --no-install commitlint --edit $1\"",
         "pre-push": "husky add .husky/pre-push \"npm run test\"",
         "unhusky": "husky uninstall"
+    },
+    "bin": {
+        "my-doc": "bin/my-doc.js"
     },
     "repository": {
         "type": "git",
@@ -37,8 +40,10 @@
         "@rollup/plugin-eslint": "^8.0.1",
         "@rollup/plugin-json": "^4.1.0",
         "@rollup/plugin-node-resolve": "^11.1.1",
+        "@types/fs-extra": "^9.0.13",
         "@types/jest": "^26.0.23",
         "@types/node": "^14.14.25",
+        "@types/normalize-path": "^3.0.0",
         "@typescript-eslint/eslint-plugin": "^4.14.2",
         "@typescript-eslint/parser": "^4.14.2",
         "commitlint": "^11.0.0",
@@ -62,6 +67,9 @@
         "typescript": "^4.1.3"
     },
     "dependencies": {
-        "@types/node": "^15.12.2"
+        "@types/node": "^15.12.2",
+        "fs-extra": "^10.1.0",
+        "minimist": "^1.2.6",
+        "normalize-path": "^3.0.0"
     }
 }

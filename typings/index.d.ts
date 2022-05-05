@@ -1,1 +1,1 @@
-export default function index(): string;
+export default function generateDoc(docPath: string): Promise<void>;
