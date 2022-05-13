@@ -299,7 +299,6 @@ function generateEvent(lines: tsdoc.TextRange[]) {
           .filter((str) => str);
         pre.typeName = typeData[0];
         pre.typeFile = typeData[1] || "";
-        console.log(pre);
       }
 
       return pre;
@@ -335,7 +334,7 @@ function generateReadme(
   content?.properties?.forEach((property) => {
     result.push(
       `| ${property.name} | ${property.isRequire} | ${property.typeName} | ${
-        property.typeFile ? `[点击查看](event.typeFile)` : "无"
+        property.typeFile ? `[点击查看](${property.typeFile})` : "无"
       } | ${property.description} |\n`,
     );
   });
@@ -354,7 +353,7 @@ function generateReadme(
   content?.events?.forEach((event) => {
     result.push(
       `| ${event.name} | ${event.typeName} | ${
-        event.typeFile ? `[点击查看](event.typeFile)` : "无"
+        event.typeFile ? `[点击查看](${event.typeFile})` : "无"
       } | ${event.description} |\n`,
     );
   });
