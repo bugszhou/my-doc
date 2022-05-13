@@ -47,11 +47,11 @@ function generateDoc(docPath, options) {
             switch (_a.label) {
                 case 0:
                     templatePath = path_1.default.join(__dirname, "../template/README.md");
-                    console.log("文档生成中......");
                     _a.label = 1;
                 case 1:
                     _a.trys.push([1, 5, , 6]);
                     if (!(options === null || options === void 0 ? void 0 : options.isTemplate)) return [3 /*break*/, 3];
+                    console.log("文档生成中......");
                     return [4 /*yield*/, fs_extra_1.default.copyFile(templatePath, path_1.default.join(generatePathUrl(docPath), "README.md"))];
                 case 2:
                     _a.sent();
