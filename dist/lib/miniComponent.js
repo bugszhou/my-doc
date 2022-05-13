@@ -113,9 +113,8 @@ function walkCompilerAstAndFindComments(node, indent, foundComments) {
  */
 function generateMiniComponentDoc(pathUrl) {
     console.log(colors_1.default.yellow("*** 正在生成文档 ***") + os_1.default.EOL);
-    var filePath = pathUrl;
     var dest = path_1.default.join(path_1.default.dirname(pathUrl), "README.md");
-    var inputFilename = path_1.default.resolve(path_1.default.join(__dirname, "..", "assets", "advanced-input.ts"));
+    var inputFilename = path_1.default.resolve(pathUrl);
     var compilerOptions = {
         target: typescript_1.default.ScriptTarget.ES5,
     };
@@ -152,7 +151,7 @@ function generateMiniComponentDoc(pathUrl) {
         }
     });
     generateReadme({
-        title: path_1.default.basename(path_1.default.dirname(filePath)),
+        title: path_1.default.basename(path_1.default.dirname(pathUrl)),
         events: events,
         properties: properties,
         summary: summary,
@@ -242,6 +241,7 @@ function generateReadme(content, options) {
     (_b = content === null || content === void 0 ? void 0 : content.properties) === null || _b === void 0 ? void 0 : _b.forEach(function (property) {
         result.push("| ".concat(property.name, " | ").concat(property.isRequire, " | ").concat(property.typeName, " | ").concat(property.typeFile ? "[\u70B9\u51FB\u67E5\u770B](event.typeFile)" : "无", " | ").concat(property.description, " |\n"));
     });
+    result.push("\n");
     result.push("## \u4E8B\u4EF6 - event\n\n");
     result.push("\u7EC4\u4EF6\u89E6\u53D1\u7684\u4E8B\u4EF6\uFF0C\u5C0F\u7A0B\u5E8F\u7EC4\u4EF6\u662F\u901A\u8FC7 triggerEvent \u65B9\u6CD5\u89E6\u53D1\u4E8B\u4EF6\n\n");
     result.push("| \u4E8B\u4EF6\u540D | \u4E8B\u4EF6\u8FD4\u56DE\u503C\u7C7B\u578B\u540D | \u7C7B\u578B\u58F0\u660E\u6587\u4EF6 | \u63CF\u8FF0|\n");

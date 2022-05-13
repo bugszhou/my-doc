@@ -9,10 +9,10 @@ interface IOptions {
 
 export default async function generateDoc(docPath: string, options?: IOptions) {
   const templatePath = path.join(__dirname, "../template/README.md");
-  console.log("文档生成中......");
 
   try {
     if (options?.isTemplate) {
+      console.log("文档生成中......");
       await fs.copyFile(
         templatePath,
         path.join(generatePathUrl(docPath), "README.md"),

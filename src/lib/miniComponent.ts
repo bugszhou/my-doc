@@ -156,12 +156,9 @@ interface IEvent {
  */
 export function generateMiniComponentDoc(pathUrl: string): void {
   console.log(colors.yellow("*** 正在生成文档 ***") + os.EOL);
-  const filePath = pathUrl;
   const dest = path.join(path.dirname(pathUrl), "README.md");
 
-  const inputFilename: string = path.resolve(
-    path.join(__dirname, "..", "assets", "advanced-input.ts"),
-  );
+  const inputFilename: string = path.resolve(pathUrl);
   const compilerOptions: ts.CompilerOptions = {
     target: ts.ScriptTarget.ES5,
   };
@@ -218,7 +215,7 @@ export function generateMiniComponentDoc(pathUrl: string): void {
 
   generateReadme(
     {
-      title: path.basename(path.dirname(filePath)),
+      title: path.basename(path.dirname(pathUrl)),
       events,
       properties,
       summary,
@@ -343,6 +340,7 @@ function generateReadme(
     );
   });
 
+  result.push("\n");
   result.push(`## 事件 - event\n\n`);
   result.push(`组件触发的事件，小程序组件是通过 triggerEvent 方法触发事件\n\n`);
 
