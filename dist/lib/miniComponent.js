@@ -222,7 +222,6 @@ function generateEvent(lines) {
                 .filter(function (str) { return str; });
             pre.typeName = typeData[0];
             pre.typeFile = typeData[1] || "";
-            console.log(pre);
         }
         return pre;
     }, event);
@@ -239,7 +238,7 @@ function generateReadme(content, options) {
         result.push("| \u65E0 | \u65E0 | \u65E0 | \u65E0 | \u65E0 |\n");
     }
     (_b = content === null || content === void 0 ? void 0 : content.properties) === null || _b === void 0 ? void 0 : _b.forEach(function (property) {
-        result.push("| ".concat(property.name, " | ").concat(property.isRequire, " | ").concat(property.typeName, " | ").concat(property.typeFile ? "[\u70B9\u51FB\u67E5\u770B](event.typeFile)" : "无", " | ").concat(property.description, " |\n"));
+        result.push("| ".concat(property.name, " | ").concat(property.isRequire, " | ").concat(property.typeName, " | ").concat(property.typeFile ? "[\u70B9\u51FB\u67E5\u770B](".concat(property.typeFile, ")") : "无", " | ").concat(property.description, " |\n"));
     });
     result.push("\n");
     result.push("## \u4E8B\u4EF6 - event\n\n");
@@ -250,7 +249,7 @@ function generateReadme(content, options) {
         result.push("| \u65E0 | \u65E0 | \u65E0 | \u65E0 |\n");
     }
     (_d = content === null || content === void 0 ? void 0 : content.events) === null || _d === void 0 ? void 0 : _d.forEach(function (event) {
-        result.push("| ".concat(event.name, " | ").concat(event.typeName, " | ").concat(event.typeFile ? "[\u70B9\u51FB\u67E5\u770B](event.typeFile)" : "无", " | ").concat(event.description, " |\n"));
+        result.push("| ".concat(event.name, " | ").concat(event.typeName, " | ").concat(event.typeFile ? "[\u70B9\u51FB\u67E5\u770B](".concat(event.typeFile, ")") : "无", " | ").concat(event.description, " |\n"));
     });
     fs_1.default.writeFileSync(options.dest || "./README.md", result.join(""));
 }
