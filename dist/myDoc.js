@@ -39,27 +39,35 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var path_1 = require("path");
 var normalize_path_1 = require("normalize-path");
 var fs_extra_1 = require("fs-extra");
-function generateDoc(docPath) {
+var miniComponent_1 = require("./lib/miniComponent");
+function generateDoc(docPath, options) {
     return __awaiter(this, void 0, void 0, function () {
         var templatePath, e_1;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
                     templatePath = path_1.default.join(__dirname, "../template/README.md");
+                    console.log("文档生成中......");
                     _a.label = 1;
                 case 1:
-                    _a.trys.push([1, 3, , 4]);
+                    _a.trys.push([1, 5, , 6]);
+                    if (!(options === null || options === void 0 ? void 0 : options.isTemplate)) return [3 /*break*/, 3];
                     return [4 /*yield*/, fs_extra_1.default.copyFile(templatePath, path_1.default.join(generatePathUrl(docPath), "README.md"))];
                 case 2:
                     _a.sent();
                     console.log("文档生成成功！");
-                    return [3 /*break*/, 4];
-                case 3:
+                    return [2 /*return*/];
+                case 3: return [4 /*yield*/, (0, miniComponent_1.generateMiniComponentDoc)(path_1.default.join(generatePathUrl(docPath), "index.ts"))];
+                case 4:
+                    _a.sent();
+                    console.log("文档生成成功！");
+                    return [3 /*break*/, 6];
+                case 5:
                     e_1 = _a.sent();
                     console.log(e_1);
                     console.log("文档生成失败！");
-                    return [3 /*break*/, 4];
-                case 4: return [2 /*return*/];
+                    return [3 /*break*/, 6];
+                case 6: return [2 /*return*/];
             }
         });
     });

@@ -1,12 +1,27 @@
 import path from "path";
 import normalizePath from "normalize-path";
 import fs from "fs-extra";
+import { generateMiniComponentDoc } from "./lib/miniComponent";
 
-export default async function generateDoc(docPath: string) {
+interface IOptions {
+  isTemplate: boolean;
+}
+
+export default async function generateDoc(docPath: string, options?: IOptions) {
   const templatePath = path.join(__dirname, "../template/README.md");
+  console.log("文档生成中......");
 
   try {
-    await fs.copyFile(templatePath, path.join(generatePathUrl(docPath), "README.md"));
+    if (options?.isTemplate) {
+      await fs.copyFile(
+        templatePath,
+        path.join(generatePathUrl(docPath), "README.md"),
+      );
+      console.log("文档生成成功！");
+      return;
+    }
+
+    await generateMiniComponentDoc(path.join(generatePathUrl(docPath), "index.ts"));
 
     console.log("文档生成成功！");
   } catch (e) {
