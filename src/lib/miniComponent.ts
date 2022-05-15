@@ -322,8 +322,11 @@ function generateReadme(
   options: IGenerateReadmeOptions,
 ) {
   const result: string[] = [`# ${content.title || ""}\n\n`];
-  result.push(content.summary || "");
-  result.push("\n\n");
+
+  if (content.summary) {
+    result.push(content.summary || "");
+    result.push("\n\n");
+  }
 
   result.push(`## 属性 - properties\n\n`);
   result.push(`| 属性名 | 是否必需 | 类型名 | 类型声明文件| 描述 |\n`);

@@ -229,8 +229,10 @@ function generateEvent(lines) {
 function generateReadme(content, options) {
     var _a, _b, _c, _d;
     var result = ["# ".concat(content.title || "", "\n\n")];
-    result.push(content.summary || "");
-    result.push("\n\n");
+    if (content.summary) {
+        result.push(content.summary || "");
+        result.push("\n\n");
+    }
     result.push("## \u5C5E\u6027 - properties\n\n");
     result.push("| \u5C5E\u6027\u540D | \u662F\u5426\u5FC5\u9700 | \u7C7B\u578B\u540D | \u7C7B\u578B\u58F0\u660E\u6587\u4EF6| \u63CF\u8FF0 |\n");
     result.push("| ---- | ---- | ---- | ---- | ---- |\n");
