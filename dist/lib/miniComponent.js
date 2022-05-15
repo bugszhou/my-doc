@@ -185,9 +185,9 @@ function generateProperty(lines) {
             var typeData = lineStr
                 .replace("@type", "")
                 .trim()
-                .replace("{@link", "")
+                .replace(" {@link ", "@@@@")
                 .replace("}", "")
-                .split(" ")
+                .split("@@@@")
                 .filter(function (str) { return str; });
             pre.typeName = typeData[0];
             pre.typeFile = typeData[1];
@@ -216,9 +216,9 @@ function generateEvent(lines) {
             var typeData = lineStr
                 .replace("@detail", "")
                 .trim()
-                .replace("{@link", "")
+                .replace(" {@link ", "@@@@")
                 .replace("}", "")
-                .split(" ")
+                .split("@@@@")
                 .filter(function (str) { return str; });
             pre.typeName = typeData[0];
             pre.typeFile = typeData[1] || "";

@@ -256,10 +256,11 @@ function generateProperty(lines: tsdoc.TextRange[]) {
         const typeData = lineStr
           .replace("@type", "")
           .trim()
-          .replace("{@link", "")
+          .replace(" {@link ", "@@@@")
           .replace("}", "")
-          .split(" ")
+          .split("@@@@")
           .filter((str) => str);
+
         pre.typeName = typeData[0];
         pre.typeFile = typeData[1];
       }
@@ -293,10 +294,11 @@ function generateEvent(lines: tsdoc.TextRange[]) {
         const typeData = lineStr
           .replace("@detail", "")
           .trim()
-          .replace("{@link", "")
+          .replace(" {@link ", "@@@@")
           .replace("}", "")
-          .split(" ")
+          .split("@@@@")
           .filter((str) => str);
+
         pre.typeName = typeData[0];
         pre.typeFile = typeData[1] || "";
       }
