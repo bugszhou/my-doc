@@ -208,7 +208,7 @@ export function generateMiniComponentDoc(pathUrl: string): void {
       events.push(generateEvent(parserContext.lines));
     }
 
-    if (!isType && !isEvent) {
+    if (!isType && !isEvent && !summary) {
       summary = parserContext.lines[0]?.toString();
     }
   });

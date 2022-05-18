@@ -146,7 +146,7 @@ function generateMiniComponentDoc(pathUrl) {
         if (isEvent) {
             events.push(generateEvent(parserContext.lines));
         }
-        if (!isType && !isEvent) {
+        if (!isType && !isEvent && !summary) {
             summary = (_c = parserContext.lines[0]) === null || _c === void 0 ? void 0 : _c.toString();
         }
     });

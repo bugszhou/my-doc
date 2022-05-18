@@ -21,7 +21,9 @@ export default async function generateDoc(docPath: string, options?: IOptions) {
       return;
     }
 
-    await generateMiniComponentDoc(path.join(generatePathUrl(docPath), "index.ts"));
+    await generateMiniComponentDoc(
+      path.join(generatePathUrl(docPath), "index.ts"),
+    );
 
     console.log("文档生成成功！");
   } catch (e) {
@@ -34,9 +36,7 @@ function generatePathUrl(pathUrl = "") {
   let fileUrl = normalizePath(String(pathUrl).trim());
   if (fileUrl === ".") {
     fileUrl = process.cwd();
-  }
-
-  if (fileUrl.startsWith("./")) {
+  } else {
     fileUrl = path.join(process.cwd(), fileUrl);
   }
 

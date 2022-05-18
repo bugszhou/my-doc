@@ -79,7 +79,7 @@ function generatePathUrl(pathUrl) {
     if (fileUrl === ".") {
         fileUrl = process.cwd();
     }
-    if (fileUrl.startsWith("./")) {
+    else {
         fileUrl = path_1.default.join(process.cwd(), fileUrl);
     }
     return fileUrl;
